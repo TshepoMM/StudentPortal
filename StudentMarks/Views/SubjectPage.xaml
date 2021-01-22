@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customrendererdemo="clr-namespace:CustomRendererDemo"
+             x:Class="StudentMarks.Views.SubjectPage">
+    <NavigationPage.TitleView>
+        <Label Text="Subjects" FontSize="Large" HorizontalOptions="Center" TextColor="Black"  />
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Please choose a subject " FontSize="Large" FontAttributes="Bold"/>
+            <ListView ItemsSource="{Binding Subjects}" BackgroundColor="Transparent" HasUnevenRows="true" ItemTapped="ListView_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <customrendererdemo:CustomViewCell>
+                            <Grid Padding="10" BackgroundColor="Transparent">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" BackgroundColor="Transparent"
+                                      Text="{Binding subjectTitle}"
+                                      FontAttributes="Bold" />
+                                <Label Grid.Row="1" BackgroundColor="Transparent"
+                                       Text="{Binding subjectID}"
+                                       VerticalOptions="End" />
+                            </Grid>
+                        </customrendererdemo:CustomViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

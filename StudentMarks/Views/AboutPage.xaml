@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentMarks.Views.AboutPage"
+             xmlns:vm="clr-namespace:StudentMarks.ViewModels" xmlns:local="clr-namespace:StudentMarks.CustomControls"
+             Title="{Binding Title}">
+   
+    <NavigationPage.TitleView>
+        <Label Text="Dash" FontSize="Large" HorizontalOptions="Center" TextColor="Black"  />
+    </NavigationPage.TitleView>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource yellow}" VerticalOptions="Fill">
+            <StackLayout BackgroundColor="{StaticResource yellow}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Padding="0,20,0,0">
+                        <Label Text="&#xf501;" FontFamily="{StaticResource FontAwesomeSolid}" VerticalTextAlignment="Start"  HorizontalTextAlignment="Center" HorizontalOptions="Center" VerticalOptions="Center" FontSize="60"  TextColor="{StaticResource lightBlue}"/>
+                        <Label x:Name="title" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="40"  TextColor="White"/>
+            </StackLayout>
+            <StackLayout Grid.Row="1"  Padding="0,20,0,0" BackgroundColor="{StaticResource yellow}">
+                <Label Text="Please choose your course from the picker below"  VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="25"/>
+
+                <local:MyFrame x:Name="Employee" BackgroundColor="Transparent"  OutlineColor="White" HasShadow="True" Grid.Column="0" Grid.Row="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <Label Text="&#xf518;" FontFamily="{StaticResource FontAwesomeSolid}" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="25"  TextColor="{StaticResource bloodRed}"/>
+
+                        <Picker Title="Pick your course" TextColor="Black" TitleColor="Black" x:Name="Course" ItemsSource="{Binding UNames}"  SelectedIndexChanged="Course_SelectedIndexChanged" HorizontalOptions="FillAndExpand" Grid.Column="1"></Picker>
+
+                    </Grid>
+                </local:MyFrame>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

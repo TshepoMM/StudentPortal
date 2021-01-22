@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:StudentMarks.CustomControls"
+             mc:Ignorable="d"
+             x:Class="StudentMarks.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+    <NavigationPage.TitleView>
+        <Label Text="Student Makrs" FontSize="Large" HorizontalOptions="Center" TextColor="White"  />
+    </NavigationPage.TitleView>
+    <ScrollView x:Name="scrollForm" Padding="20">
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Image x:Name="iconBrain">
+                <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                        <OnPlatform.iOS>
+                            <FileImageSource File="logo.png"/>
+                        </OnPlatform.iOS>
+                        <OnPlatform.Android>
+                            <FileImageSource File="drawable/logo.png"/>
+                        </OnPlatform.Android>
+                    </OnPlatform>
+                </Image.Source>
+            </Image>
+            <Grid Grid.Row="3" Padding="0,10,0,0">
+                <local:IconFrame BackgroundColor="Transparent" OutlineColor="White" HasShadow="false" Padding="20,5,5,5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="&#xf007;" Grid.Row="0" FontFamily="{StaticResource FontAwesomeSolid}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="25"  TextColor="{StaticResource darkBlue}"/>
+
+                        <local:MyEntry x:Name="email" Text="tshepo@cut.ac.za" Grid.Row="0" Placeholder="Email Address" PlaceholderColor="Gray" Grid.Column="1" HorizontalOptions="FillAndExpand" TextColor="Black" FontSize="15" HeightRequest="40" />
+
+                        <Label Text="&#xf023;" Grid.Row="1" FontFamily="{StaticResource FontAwesomeSolid}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="25"  TextColor="{StaticResource darkBlue}"/>
+
+                        <local:MyEntry x:Name="password" Text="123456" Grid.Row="1" Placeholder="Password" PlaceholderColor="White" Grid.Column="1" HorizontalOptions="FillAndExpand" TextColor="Black" FontSize="15" HeightRequest="40" />
+                    </Grid>
+                </local:IconFrame>
+            </Grid>
+            <Button x:Name="LoginButton" Clicked="LoginButton_Clicked"  Text="Log In" TextColor="White"  Margin="0,50,0,0" BorderRadius="15" BackgroundColor="{StaticResource lightBlue}" />
+            <ActivityIndicator x:Name="activity" Color="Blue" IsRunning="False" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
